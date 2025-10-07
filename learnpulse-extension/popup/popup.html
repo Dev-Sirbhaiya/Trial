@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnPulse Daily</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup-container">
+      <header class="popup-header">
+        <div>
+          <h1>LearnPulse</h1>
+          <p class="subtitle">Your autonomous micro-learning companion</p>
+        </div>
+        <button id="generate-now" class="secondary" title="Generate lesson now">↻ Refresh</button>
+      </header>
+
+      <section class="lesson-card" id="lesson-section">
+        <h2 id="lesson-title">Preparing today&apos;s lesson…</h2>
+        <p id="lesson-summary" class="lesson-summary"></p>
+        <article id="lesson-body" class="lesson-body"></article>
+        <div id="lesson-sources" class="sources"></div>
+        <div id="lesson-exercise" class="exercise"></div>
+      </section>
+
+      <section class="flashcard-section" id="flashcard-section">
+        <h2>Flashcards due today</h2>
+        <div id="flashcard-container" class="flashcard-container">
+          <div id="flashcard" class="flashcard" aria-live="polite">
+            <div class="front">
+              <h3>Question</h3>
+              <p id="flashcard-question">No cards due.</p>
+            </div>
+            <div class="back">
+              <h3>Answer</h3>
+              <p id="flashcard-answer">Review complete!</p>
+            </div>
+          </div>
+        </div>
+        <div class="flashcard-actions">
+          <button id="flip-card" class="ghost">Flip</button>
+          <div class="grades" id="grade-buttons"></div>
+        </div>
+      </section>
+
+      <section class="stats" id="stats-section">
+        <div>
+          <span class="label">Streak</span>
+          <strong id="streak-value">0 days</strong>
+        </div>
+        <div>
+          <span class="label">Lessons completed</span>
+          <strong id="lessons-value">0</strong>
+        </div>
+        <div>
+          <span class="label">Cards reviewed</span>
+          <strong id="cards-value">0</strong>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a href="../options/options.html" target="_blank">Adjust settings</a>
+      </footer>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

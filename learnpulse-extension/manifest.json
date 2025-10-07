@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "LearnPulse Daily Companion",
+  "version": "1.0.0",
+  "description": "Daily AI-generated micro-lessons and spaced repetition flashcards for personalized learning.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "LearnPulse"
+  },
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "http://localhost:11434/*",
+    "<all_urls>"
+  ],
+  "short_name": "LearnPulse",
+  "author": "LearnPulse Team",
+  "offline_enabled": true
+}
