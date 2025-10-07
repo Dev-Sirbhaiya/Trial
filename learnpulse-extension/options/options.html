@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LearnPulse Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="options-container">
+      <header>
+        <h1>LearnPulse Settings</h1>
+        <p>Configure your daily learning preferences, AI backend, and curated sources.</p>
+      </header>
+
+      <section class="card" id="mode-section">
+        <h2>Learning Mode</h2>
+        <p>Select how LearnPulse should generate daily content.</p>
+        <label class="field">
+          <span>Mode</span>
+          <select id="mode-select">
+            <option value="autonomous">Autonomous (AI plans the curriculum)</option>
+            <option value="curated">Curated (stick to my sources)</option>
+          </select>
+        </label>
+        <label class="field" id="topic-field">
+          <span>Primary topic</span>
+          <input type="text" id="topic-input" placeholder="e.g. Agentic AI" />
+        </label>
+        <div id="curated-wrapper" hidden>
+          <h3>Curated Sources</h3>
+          <p>Paste URLs or text snippets. LearnPulse will only use these materials.</p>
+          <div class="field">
+            <textarea id="curated-urls" rows="4" placeholder="One URL per line"></textarea>
+          </div>
+          <div class="field">
+            <textarea id="curated-notes" rows="5" placeholder="Paste key excerpts or notes"></textarea>
+          </div>
+          <div class="field">
+            <label class="file-upload">
+              <span>Upload text file (UTF-8)</span>
+              <input type="file" id="curated-file" accept=".txt,.md" />
+            </label>
+          </div>
+          <ul id="curated-list" class="source-list"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>AI Backend</h2>
+        <p>Choose the order of AI providers. LearnPulse will fall back automatically.</p>
+        <div class="field">
+          <span>Preferred order</span>
+          <ul id="backend-preferences" class="backend-preferences">
+            <li data-backend="gemini">
+              <label><input type="checkbox" checked /> Gemini API (cloud)</label>
+              <div class="controls" role="group" aria-label="Reorder Gemini">
+                <button type="button" class="up" aria-label="Move Gemini up">↑</button>
+                <button type="button" class="down" aria-label="Move Gemini down">↓</button>
+              </div>
+            </li>
+            <li data-backend="ollama">
+              <label><input type="checkbox" checked /> Ollama (local)</label>
+              <div class="controls" role="group" aria-label="Reorder Ollama">
+                <button type="button" class="up" aria-label="Move Ollama up">↑</button>
+                <button type="button" class="down" aria-label="Move Ollama down">↓</button>
+              </div>
+            </li>
+            <li data-backend="promptApi">
+              <label><input type="checkbox" /> Chrome Prompt API</label>
+              <div class="controls" role="group" aria-label="Reorder Chrome Prompt API">
+                <button type="button" class="up" aria-label="Move Chrome Prompt API up">↑</button>
+                <button type="button" class="down" aria-label="Move Chrome Prompt API down">↓</button>
+              </div>
+            </li>
+          </ul>
+          <small>Toggle providers and adjust order with the arrow buttons. At least one backend must remain enabled.</small>
+        </div>
+        <div class="field">
+          <label for="gemini-key">Gemini API key</label>
+          <input type="password" id="gemini-key" placeholder="AI Studio API key" autocomplete="off" />
+          <small>Stored securely with chrome.storage.sync. Required for Gemini cloud.</small>
+        </div>
+        <div class="field">
+          <label for="ollama-model">Ollama model name</label>
+          <input type="text" id="ollama-model" value="mistral" />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Daily Routine</h2>
+        <div class="field">
+          <label for="lesson-hour">Lesson time</label>
+          <input type="time" id="lesson-time" value="09:00" />
+        </div>
+        <div class="field checkbox">
+          <input type="checkbox" id="notifications-toggle" checked />
+          <label for="notifications-toggle">Enable desktop notifications</label>
+        </div>
+        <div class="field slider">
+          <label for="lesson-length">Lesson length (words)</label>
+          <input type="range" id="lesson-length" min="400" max="1000" step="50" value="750" />
+          <span id="lesson-length-value">750 words</span>
+        </div>
+        <div class="field slider">
+          <label for="flashcard-count">Flashcards per day</label>
+          <input type="range" id="flashcard-count" min="3" max="12" step="1" value="6" />
+          <span id="flashcard-count-value">6 cards</span>
+        </div>
+      </section>
+
+      <footer>
+        <button id="save-button" class="primary">Save preferences</button>
+        <span id="status" role="status" aria-live="polite"></span>
+      </footer>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

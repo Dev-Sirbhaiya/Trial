@@ -1,0 +1,210 @@
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  --bg: #0f172a;
+  --card: #111c34;
+  --text: #f8fafc;
+  --muted: #cbd5f5;
+  --accent: #38bdf8;
+  --accent-strong: #2563eb;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1e293b, #0f172a 60%);
+  color: var(--text);
+  min-width: 380px;
+}
+
+.popup-container {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lesson-card {
+  background: linear-gradient(145deg, rgba(37, 99, 235, 0.12), rgba(15, 118, 110, 0.12));
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.2);
+}
+
+.lesson-card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.lesson-summary {
+  margin: 0.5rem 0 1rem;
+  color: var(--muted);
+}
+
+.lesson-body {
+  max-height: 240px;
+  overflow: auto;
+  padding-right: 0.5rem;
+  line-height: 1.45;
+}
+
+.lesson-body h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.lesson-body p {
+  margin-top: 0.5rem;
+}
+
+.sources {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.sources ul {
+  padding-left: 1.2rem;
+}
+
+.exercise {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.1);
+  font-size: 0.9rem;
+}
+
+.flashcard-section {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 18px;
+  padding: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.14);
+}
+
+.flashcard-container {
+  perspective: 1000px;
+  margin-bottom: 0.75rem;
+}
+
+.flashcard {
+  position: relative;
+  width: 100%;
+  min-height: 140px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard .front,
+.flashcard .back {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  background: rgba(30, 41, 59, 0.8);
+  border-radius: 14px;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flashcard .back {
+  transform: rotateY(180deg);
+}
+
+.flashcard-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grades {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.grades button {
+  padding: 0.45rem 0;
+  border-radius: 8px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.grades button:hover {
+  background: rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
+}
+
+.secondary,
+.ghost {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  color: var(--muted);
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.secondary:hover,
+.ghost:hover {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.stats .label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.stats strong {
+  font-size: 1.1rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
